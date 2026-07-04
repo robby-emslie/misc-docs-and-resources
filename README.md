@@ -11,4 +11,4 @@ A collection of documentation, resources, and other disparate nonsense that does
 
 ## Usage
 
-Feel free to explore, read, use, and share the contents of this repository. It is provided "as-is" under the [Creative Commons BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/] license.
+Feel free to explore, read, use, and share the contents of this repository. It is provided "as-is" under the [Creative Commons BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
