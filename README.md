@@ -10,6 +10,7 @@ A collection of documentation, resources, and other disparate nonsense that does
 
 - [**A script library**](./scripts/) where I've (very recently) started trying to aggregate all the most useful scripts I've created over the years.
     - [Python](./scripts/python/)
+        - [`scraper.py`](./scripts/python/scraper.py) is a simple commandline utility for scraping HTML pages, extracting tabular data, and rendering it in CSV format.
     - [Bash](./scripts/bash/)
     - [JavaScript](./scripts/javascript/)
         - [`csvExtractAndTransform.js`](./script_library/javascript/csvExtractAndTransform.js) is a simple ETL utility for parsing data out of a CSV source, transforming fields according to JSON-encoded transformation formulae
