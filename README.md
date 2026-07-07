@@ -13,11 +13,12 @@ A collection of documentation, resources, and other disparate nonsense that does
         - [`scraper.py`](./scripts/python/scraper.py) is a simple commandline utility for scraping HTML pages, extracting tabular data, and rendering it in CSV format.
     - [Bash](./scripts/bash/)
     - [JavaScript](./scripts/javascript/)
-        - [`csvExtractAndTransform.js`](./script_library/javascript/csvExtractAndTransform.js) is a simple ETL utility for parsing data out of a CSV source, transforming fields according to JSON-encoded transformation formulae
+        - [`csvExtractAndTransform.js`](./scripts/javascript/csvExtractAndTransform.js) is a simple ETL utility for parsing data out of a CSV source, transforming fields according to JSON-encoded transformation formulae
     - [Ruby](./scripts/ruby/)
+- Various [**guides, documentation, how-tos, and cheat sheets**](./docs/) for Linux, software development and scripting, networking, cybersecurity, and so on.
+    - [A guide to spinning up n8n locally](./docs/setup_n8n_dev_environment.md) for local automation and node development. This guide is based on using Podman (a Docker alternative) and also implements a PostgreSQL database to ensure data persistance -- I assume you actually want to *use* your automation environment, and not just develop nodes at random, yes? ;-)
 - [**Essays**](./essays/) I've written relevant to the technology industry
     - [An Ethical Analysis of the Proliferation of Artificial Intelligence](./essays/2025-ethical_proliferation_of_ai.md) details the conundrum of AI proliferation from the perspective of ethical philosophy. This essay dares to ask whether, in our haste to implement AI, we have presumed an affirmative to a crucial question -- "*should* we...?" -- and suggests that, until we turn our attention back to this query, any further implementation becomes is inherently unethical.
-- Various [**guides, documentation, how-tos, and cheat sheets**](./docs/) for Linux, software development and scripting, networking, cybersecurity, and so on.
 
 ## Usage and Distribution
 
