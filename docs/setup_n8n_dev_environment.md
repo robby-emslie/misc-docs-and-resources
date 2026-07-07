@@ -13,7 +13,11 @@ Whether you're considering digging into the powerful [n8n](https://www.n8n.io) a
 1. [Grab development dependencies](#1-install-dependencies)
     1. [Development dependencies](#11-development-dependencies-nodejs-npm-and-nvm)
     2. [Podman](#12-setting-up-podman)
-2. [Build your Dockerfile](#2-build-your-dockerfile)
+2. [Build your docker-compose.yml and Dockerfile](#2-build-your-dockerfile)
+    1. [The docker-compose.yml](#21-the-docker-composeyml-file)
+    2. [Dockerfile for custom nodes](#22-dockerfile-for-custom-node-development)
+        1. [Create the Dockerfile](#221-create-the-dockerfile)
+        2. [Update docker-compose.yml](#222-modify-docker-composeyml)
 3. [Spin up the n8n environment](#3-spin-up-the-n8n-environment)
 
 ## 1. Install dependencies
@@ -85,7 +89,7 @@ Okay. Ready? Let's get "down and dirty" with setting up your n8n instance.
 
 Thwe  beautiful thing about using the a container to build your n8n instance is that it's quick, and you can change your setup on-the-fly with minimal effort. But keep something in mind: **if you don't setup a persistent database with PostgreSQL and tie it to your n8n instance, you'll lose your n8n configuration and any workflows you've built in there every time you shutdown the environment**. Without a database configured, n8n will just use a SQLite database to power itself, and that's probably sufficient if you're just building nodes and not trying to *use* the environment for anything, but if you *do* want to actually automate stuff, you'll need to setup a database that persists through spin-downs and restarts. I'll give you both versions of the `docker-compose.yml`, but unless you're regularly building nodes and basically *never* running workflows, it doesn't make much sense to forego setting up a database.
 
-### The docker-compose.yml file
+### 2.1 The docker-compose.yml file
 
 This is the part that builds your docker image from the n8n source image (and your PostgreSQL database if you're using it).
 
@@ -152,13 +156,13 @@ volumes:
   postgres_data:
 ```
 
-### Dockerfile for custom node development
+### 2.2 Dockerfile for custom node development
 
 If you plan on creating your own custom nodes, you'll need to take a few more steps after you finish developing the node(s) to make them available. Once you've built your custom node and run `npm run build`, you'll need to install it in your host environment, so you'll need to tell your container environment to copy the custom node from `/some/directory/n8n-nodes-custom_node` into its `./custom-nodes` directory and run `npm install` when the container spins up.
 
 This happens in two steps. First you need to build the `Dockerfile`, itself, then you need to modify your `docker-compose.yml` file to reference *that* instead of just the source n8n image.
 
-#### 1. Create the Dockerfile
+#### 2.2.1 Create the Dockerfile
 
 This isn't terribly difficult. You're just creating a simple `Dockerfile` that tells your container host to build an image from tne n8nio image and, copy the custom node into the image when it spins up, and run the `npm install` commands to install your node. It should look something like this:
 
@@ -177,7 +181,7 @@ COPY configs-or-creds.json /home/node/.n8n/configs-or-creds.json
 
 Then you need to edit the `docker-compose.yml` to read **your** `Dockerfile`, instead of the default from n8nio...
 
-#### 2. Modify docker-compose.yml
+#### 2.2.2 Modify docker-compose.yml
 
 This part is super easy. Open the `docker-compose.yml` you built earlier and change the n8n service like this:
 
