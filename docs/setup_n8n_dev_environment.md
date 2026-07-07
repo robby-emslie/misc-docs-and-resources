@@ -1,6 +1,6 @@
 # Setup an n8n development environment
 
-Version 1.0
+Version 1.0  
 *July 2026*
 
 Whether you're considering digging into the powerful [n8n](https://www.n8n.io) automation platform, and especially if you want to create custom nodes or tinker with the platform's codebase, or you just want to *use* the platform for exactly the purposes it was intended, you're going to need a local instance of n8n to get started. Here's how to do it in no-time-flat from a container image, complete with a SQL database to power it.
@@ -115,7 +115,7 @@ volumes:
   n8n_data:
 ```
 
-Obviously, this isn't very useful. Here's a more "involved" configuration that bakes a PostgreSQL database into the environment. Replace `<your_super_strong_password> with a secure password for your database.
+Obviously, this isn't very useful. Here's a more "involved" configuration that bakes a PostgreSQL database into the environment. Replace `<your_super_strong_password>` with a secure password for your database.
 
 ```yaml
 services:
